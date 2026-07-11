@@ -1,0 +1,155 @@
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --section-gap: 2rem;
+  --main-item-gap: 1.5rem;
+}
+
+/* ヘッダー、メイン、フッターの共通設定 */
+.header, 
+.main, 
+.footer {
+  margin-top: var(--section-gap);
+}
+
+
+/* ヘッダー */
+.header {
+  height: 50px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 100%;
+  padding-right: 1rem;
+  list-style: none;
+}
+
+.header__nav-item {
+  /* indexに記載済み、スタイルを当てる場合に使用 */
+}
+
+/* メイン */
+.main__image {
+  aspect-ratio: 1 / 0.5;
+  width: 100%;
+  object-fit: cover;
+}
+
+.main__flex, 
+.main__flex-item {
+  display: flex;
+}
+
+.main__flex, 
+.main__grid {
+  margin-top: var(--main-item-gap);
+}
+
+.main__flex {
+  justify-content: center;
+}
+
+.main__flex-item {
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__flex-image {
+  aspect-ratio: 1 / 1;
+  width: 200px;
+  object-fit: cover;
+}
+
+.main__flex-title {
+  text-align: center;
+}
+
+.main__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  align-items: center; 
+}
+
+.main__grid-item--1, 
+.main__grid-item--2, 
+.main__grid-item--3 {
+  grid-row: 2;
+}
+
+.main__grid-item--1 {
+  grid-column: 1 / 3;
+}
+
+.main__grid-item--2 {
+  grid-column: 3 / 5;
+}
+
+.main__grid-item--3 {
+  grid-column: 5 / 7;
+}
+
+.main__grid-image {
+  aspect-ratio: 1 / 1;
+  width: 100px;
+  object-fit: contain;
+}
+
+/* フッター */
+.footer__text {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 767.8px) {
+  .main__flex {
+    display: block;
+  }
+
+  .main__flex-item + .main__flex-item {
+    margin-top: var(--main-item-gap);
+  }
+
+  .main__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center; 
+  }
+
+  .main__grid-item--1 {
+    grid-row: 2;
+    margin-bottom: var(--main-item-gap);
+  }
+
+  .main__grid-item--2 {
+    grid-row: 4;
+    margin-bottom: var(--main-item-gap);
+  }
+
+  .main__grid-item--3 {
+    grid-row: 6;
+    margin-bottom: var(--main-item-gap);
+  }
+
+  .main__grid-item--1, 
+  .main__grid-item--2, 
+  .main__grid-item--3 {
+    grid-column: 1 / 3;
+  }
+}
